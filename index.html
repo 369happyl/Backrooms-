@@ -68,7 +68,7 @@
       align-items:center;
       flex-direction:column;
       color:#111;
-      overflow:hidden;
+      overflow-y:auto; /* AQUI: Adicionado rolagem vertical */
     }
     #backroomsPage::before {
       content:"";
@@ -83,7 +83,7 @@
       font-weight:900;
       text-transform:uppercase;
       position:relative;
-      margin:0;
+      margin:20px 0 0;
     }
     #backroomsPage h2::before, #backroomsPage h2::after {
       content:attr(data-text);
@@ -100,12 +100,23 @@
       text-shadow:-2px 0 #f00;
       animation:glitch 1.5s infinite linear alternate;
     }
-    #backroomsPage h3 {
-      margin-top:16px;
-      font-size:clamp(18px,4vw,28px);
-      font-weight:700;
-      animation:shake 2.5s infinite;
+    #backroomsPage .content {
+        max-width: 720px;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
     }
+    #backroomsPage .content h3 {
+        margin-top: 16px;
+        font-size: clamp(18px, 4vw, 28px);
+        font-weight: 700;
+        animation: shake 2.5s infinite;
+    }
+    #backroomsPage .content p {
+        margin: 1em 0;
+        line-height: 1.6;
+    }
+
     @keyframes shake {
       0%,100%{transform:translate(0,0);}
       20%{transform:translate(-1px,1px);}
@@ -120,7 +131,7 @@
       animation:fogmove 20s infinite alternate ease-in-out;
     }
     @keyframes fogmove {from{transform:translateX(-20px);} to{transform:translateX(20px);}}
-    .btn.back {margin-top:28px;z-index:10;}
+    .btn.back {margin:28px auto;z-index:10;}
   </style>
 </head>
 <body>
@@ -168,17 +179,50 @@
     </div>
   </div>
 
-  <!-- Binary rain -->
   <div class="matrix" id="matrix"></div>
 
-  <!-- Página Backrooms -->
   <div id="backroomsPage">
     <div class="fog"></div>
     <h2 data-text="Como ir pras Backrooms">Como ir pras Backrooms</h2>
-    <h3>fazendo o ritual das backrooms tomando um gole da agua de Amêndoa ou cerveja mas para menores recomendado agua de Amêndoa, depois de beber desenhar um quadrado no chão e ficar jogando as coisas no quadrado e depois aí você ira receber
-    uma nota do level the matrixblack level 1839, feche o olho de 5 passos abra os olhos suba a escada conte até 10 diga backrooms 3 vezes e abra os olhos você estara na sua casa com uma falha e só atravesse a parede de tijolos que ira aparecer ao teu lado.
-    se não quiser fazer isso tudo você tem que ter uma chance de 0.8402% de chance de encontrar uma falha noclip.
-    <p>até hoje a indicio de 1264 pessoas desaparecidas, relatorios dizem que as pessoas desapareceram estranhamente de um dia pro outro, 13 pessoas do brasil, 289 pessoas dos eua, 21 pessoas da frança, 162 pessoas do reino unido, 98 pessoas da china, 26 pessoas da india, 48 da coreia do sul, 3 do Japão,  67 da australia, 25 da alemanha, 63 de portugal, 12 do canada, 86 da Argentina , 76 pessoas da Colômbia, 54 pessoas da espanha, 28 pessoas da irlanda, 9 pessoas da ucrania , 45 pessoas da russia, 62 pessoas de chade, 22 pessoas da turquia, 1 pessoa da arabia saudita, 12 pessoas da nova zelandia, 85 pesdoas da italia e 61 pessoas da Suécia, essas pessoas desapareceram de um dia para o outro ao fazer rituais</p></h3>
+    <div class="content">
+      <h3>Método de Ritual</h3>
+      <p>Para tentar o ritual, primeiro você precisa tomar um gole de Água de Amêndoa ou cerveja. Para menores, a água de amêndoa é recomendada. Depois de beber, desenhe um quadrado no chão e comece a jogar objetos dentro dele. Ao fazer isso, você pode receber uma nota misteriosa do "Level The MatrixBlack", nível 1839.</p>
+
+      <h3>O Procedimento Pós-Nota</h3>
+      <p>Com a nota em mãos, feche os olhos e dê cinco passos para frente. Ao abrir os olhos, suba a escada mais próxima. Conte até 10, diga a palavra "Backrooms" três vezes e abra os olhos novamente. Você estará em sua casa, mas notará uma falha na realidade. Uma parede de tijolos aparecerá ao seu lado. Atravesse-a para entrar nas Backrooms.</p>
+
+      <h3>Método Alternativo: Noclip</h3>
+      <p>Se você não quiser seguir o ritual, a única outra maneira de entrar nas Backrooms é por meio de uma falha <b>noclip</b>. A chance de encontrar uma falha dessas é de apenas **0,8402%**.</p>
+
+      <h3>Relatórios de Desaparecimentos</h3>
+      <p>Há indícios de 1264 pessoas desaparecidas até hoje, e relatórios sugerem que o desaparecimento delas está relacionado à realização de rituais. A distribuição dos desaparecimentos por país é a seguinte:</p>
+      <ul>
+        <li>Brasil: 13 pessoas</li>
+        <li>EUA: 289 pessoas</li>
+        <li>França: 21 pessoas</li>
+        <li>Reino Unido: 162 pessoas</li>
+        <li>China: 98 pessoas</li>
+        <li>Índia: 26 pessoas</li>
+        <li>Coreia do Sul: 48 pessoas</li>
+        <li>Japão: 3 pessoas</li>
+        <li>Austrália: 67 pessoas</li>
+        <li>Alemanha: 25 pessoas</li>
+        <li>Portugal: 63 pessoas</li>
+        <li>Canadá: 12 pessoas</li>
+        <li>Argentina: 86 pessoas</li>
+        <li>Colômbia: 76 pessoas</li>
+        <li>Espanha: 54 pessoas</li>
+        <li>Irlanda: 28 pessoas</li>
+        <li>Ucrânia: 9 pessoas</li>
+        <li>Rússia: 45 pessoas</li>
+        <li>Chade: 62 pessoas</li>
+        <li>Turquia: 22 pessoas</li>
+        <li>Arábia Saudita: 1 pessoa</li>
+        <li>Nova Zelândia: 12 pessoas</li>
+        <li>Itália: 85 pessoas</li>
+        <li>Suécia: 61 pessoas</li>
+      </ul>
+    </div>
     <button class="btn back" onclick="closeBackrooms()">Voltar</button>
   </div>
 
@@ -213,7 +257,7 @@
         c.el.children[idx].textContent = Math.random()>0.5?'0':'1';
       }
     }
-    requestAnimationFrame(animate);
+requestAnimationFrame(animate);
   }
   animate();
   document.getElementById('toggleBinary').addEventListener('click', ()=>{
