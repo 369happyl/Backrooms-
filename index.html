@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,62 +8,119 @@
     /* ===== Base & Texture ===== */
     :root{
       --bg-left:#fff;
-      --bg-right:#e6f7e9; /* leve verde */
-      --paper:#f7f0a5; /* tom amarelo envelhecido */
+      --bg-right:#e6f7e9;
+      --paper:#f7f0a5;
       --accent:#1b1b1b;
       --muted:#444;
       --glass: rgba(255,255,255,0.06);
     }
-    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(90deg,var(--paper) 0 45%, var(--bg-right) 45% 100%); color:var(--accent);}/* paper texture */
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:0.12;
-  background-image:radial-gradient(circle at 20% 10%, rgba(0,0,0,0.02) 0 2px, transparent 3px),
-                    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0 2px, transparent 3px);
-}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(90deg,var(--paper) 0 45%, var(--bg-right) 45% 100%); color:var(--accent);}
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:0.12;
+      background-image:radial-gradient(circle at 20% 10%, rgba(0,0,0,0.02) 0 2px, transparent 3px),
+                      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0 2px, transparent 3px);
+    }
 
-/* container */
-.card{max-width:920px;margin:48px auto;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));box-shadow:0 8px 30px rgba(10,10,10,0.12);backdrop-filter:blur(4px);position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+    .card{max-width:920px;margin:48px auto;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));box-shadow:0 8px 30px rgba(10,10,10,0.12);backdrop-filter:blur(4px);position:relative;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
 
-/* glitch title */
-.title{font-size:clamp(22px,5vw,36px);font-weight:800;letter-spacing:0.6px;position:relative;margin:0 0 10px}
-.title .glitch{display:inline-block;position:relative}
-.title .glitch::before,.title .glitch::after{content:attr(data-text);position:absolute;left:0;top:0;clip-path:polygon(0 0,100% 0,100% 45%,0 45%);}    
-.title .glitch::before{transform:translate(2px,-2px);opacity:0.9;color:#083;mix-blend-mode:screen;}
-.title .glitch::after{transform:translate(-2px,2px);opacity:0.9;color:#b00;mix-blend-mode:multiply;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);}    
-@keyframes glitch-shift{0%{transform:translateX(0)}20%{transform:translateX(-1px)}40%{transform:translateX(1px)}60%{transform:translateX(-1px)}80%{transform:translateX(1px)}100%{transform:translateX(0)}}
-.title .glitch{animation:glitch-shift 2.6s infinite linear}
+    /* glitch title */
+    .title{font-size:clamp(22px,5vw,36px);font-weight:800;letter-spacing:0.6px;position:relative;margin:0 0 10px}
+    .title .glitch{display:inline-block;position:relative}
+    .title .glitch::before,.title .glitch::after{content:attr(data-text);position:absolute;left:0;top:0;clip-path:polygon(0 0,100% 0,100% 45%,0 45%);}    
+    .title .glitch::before{transform:translate(2px,-2px);opacity:0.9;color:#083;mix-blend-mode:screen;}
+    .title .glitch::after{transform:translate(-2px,2px);opacity:0.9;color:#b00;mix-blend-mode:multiply;clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);}    
+    @keyframes glitch-shift{0%{transform:translateX(0)}20%{transform:translateX(-1px)}40%{transform:translateX(1px)}60%{transform:translateX(-1px)}80%{transform:translateX(1px)}100%{transform:translateX(0)}}
+    .title .glitch{animation:glitch-shift 2.6s infinite linear}
 
-/* meta */
-.meta{font-size:13px;color:var(--muted);margin-bottom:16px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:16px}
 
-/* layout */
-.cols{display:grid;grid-template-columns:1fr 360px;gap:18px}
-.section{background:rgba(255,255,255,0.5);padding:14px;border-radius:8px;border:1px dashed rgba(0,0,0,0.06)}
+    .cols{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .section{background:rgba(255,255,255,0.5);padding:14px;border-radius:8px;border:1px dashed rgba(0,0,0,0.06)}
 
-/* recipe */
-h3{margin:6px 0 10px}
-ul{margin:8px 0 12px;padding-left:18px}
-li{margin:6px 0}
+    h3{margin:6px 0 10px}
+    ul{margin:8px 0 12px;padding-left:18px}
+    li{margin:6px 0}
+    .note{font-size:13px;color:#111;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));padding:10px;border-radius:6px}
 
-/* coe area */
-.note{font-size:13px;color:#111;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));padding:10px;border-radius:6px}
+    /* binary rain */
+    .matrix{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:0.16}
+    .column{position:absolute;top:-100vh;white-space:nowrap;will-change:transform}
+    .column span{display:block;font-family:monospace;font-size:12px;line-height:12px;filter:blur(0.2px)}
 
-/* binary rain */
-.matrix{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:0.16}
-.column{position:absolute;top:-100vh;white-space:nowrap;will-change:transform}
-.column span{display:block;font-family:monospace;font-size:12px;line-height:12px;filter:blur(0.2px)}
+    /* buttons */
+    .controls{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .btn{background:#111;color:#fff;padding:8px 10px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
 
-/* buttons */
-.controls{display:flex;gap:8px;align-items:center;margin-top:12px}
-.btn{background:#111;color:#fff;padding:8px 10px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
+    .footer{font-size:12px;color:var(--muted);margin-top:12px}
 
-/* footer */
-.footer{font-size:12px;color:var(--muted);margin-top:12px}
+    @media (max-width:880px){.cols{grid-template-columns:1fr}}
 
-/* responsive */
-@media (max-width:880px){.cols{grid-template-columns:1fr}}
-
+    /* ===== Página Backrooms (oculta inicialmente) ===== */
+    #backroomsPage {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:linear-gradient(135deg,#f7f18b,#f5f5c4);
+      font-family:"Courier New", monospace;
+      z-index:999;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      color:#111;
+      overflow:hidden;
+    }
+    #backroomsPage::before {
+      content:"";
+      position:absolute;inset:0;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(180deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 4px);
+      opacity:0.2;
+    }
+    #backroomsPage h2 {
+      font-size:clamp(26px,6vw,48px);
+      font-weight:900;
+      text-transform:uppercase;
+      position:relative;
+      margin:0;
+    }
+    #backroomsPage h2::before, #backroomsPage h2::after {
+      content:attr(data-text);
+      position:absolute;
+      left:0;top:0;width:100%;
+    }
+    #backroomsPage h2::before {
+      left:2px;
+      text-shadow:-2px 0 #0f0;
+      animation:glitch 2s infinite linear alternate-reverse;
+    }
+    #backroomsPage h2::after {
+      left:-2px;
+      text-shadow:-2px 0 #f00;
+      animation:glitch 1.5s infinite linear alternate;
+    }
+    #backroomsPage h3 {
+      margin-top:16px;
+      font-size:clamp(18px,4vw,28px);
+      font-weight:700;
+      animation:shake 2.5s infinite;
+    }
+    @keyframes shake {
+      0%,100%{transform:translate(0,0);}
+      20%{transform:translate(-1px,1px);}
+      40%{transform:translate(1px,-1px);}
+      60%{transform:translate(-2px,0);}
+      80%{transform:translate(2px,1px);}
+    }
+    .fog {
+      position:absolute;inset:0;
+      background:radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 70%),
+                 radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1), transparent 70%);
+      animation:fogmove 20s infinite alternate ease-in-out;
+    }
+    @keyframes fogmove {from{transform:translateX(-20px);} to{transform:translateX(20px);}}
+    .btn.back {margin-top:28px;z-index:10;}
   </style>
 </head>
 <body>
@@ -76,149 +134,143 @@ li{margin:6px 0}
         <button class="btn" id="toggleGlitch">Ativar Glitch</button>
         <button class="btn ghost" id="downloadBtn">Baixar HTML</button>
       </div>
-    </div><div class="cols" style="margin-top:12px">
-  <main class="section">
-    <h3>Introdução</h3>
-    <p class="note">Este é um manual recuperado em um dos níveis amarelos. Contém instruções para preparar a chamada "Água de Amêndoa" — bebida leve e nutritiva muito valorizada por exploradores. <strong>Texto realista e seguro: receita caseira.</strong></p>
-
-    <h3>Ingredientes</h3>
-    <ul>
-      <li>1 xícara de amêndoas cruas (sem sal)</li>
-      <li>3 a 4 xícaras de água filtrada</li>
-      <li>1 colher de chá de mel ou açúcar (opcional)</li>
-      <li>1 pitada de sal (opcional)</li>
-      <li>Gelo ou essência de baunilha (opcional)</li>
-    </ul>
-
-    <h3>Modo de preparo</h3>
-    <ol>
-      <li><strong>Molho:</strong> cubra as amêndoas com água e deixe de molho por 8–12 horas.</li>
-      <li><strong>Escorrer:</strong> descarte água do molho e enxágue bem.</li>
-      <li><strong>Bater:</strong> coloque no liquidificador com 3–4 xícaras de água e bata 2–3 minutos.</li>
-      <li><strong>Coar:</strong> coe com pano, voal ou peneira fina. Reserve o líquido.</li>
-      <li><strong>Ajustar:</strong> adicione mel, baunilha ou gelo se desejar. Agite antes de servir.</li>
-    </ol>
-
-    <h3>Armazenamento</h3>
-    <p>Guarde em garrafa de vidro na geladeira por 3 a 5 dias. Agite antes de consumir.</p>
-
-    <h3>Efeitos (lore)</h3>
-    <p>Nas histórias das Backrooms, a bebida tem efeitos restauradores; na realidade é nutritiva e sem lactose — uma ótima alternativa ao leite para quem procura algo leve.</p>
-
-    <div class="controls">
-      <button class="btn" id="toggleBinary">Parar Chuva Binária</button>
-      <button class="btn ghost" id="toggleCreep">Versão Creepypasta</button>
     </div>
+    <div class="cols" style="margin-top:12px">
+      <main class="section">
+        <h3>Introdução</h3>
+        <p class="note">Este é um manual recuperado em um dos níveis amarelos. Contém instruções para preparar a chamada "Água de Amêndoa".</p>
+        <h3>Ingredientes</h3>
+        <ul>
+          <li>1 xícara de amêndoas cruas</li>
+          <li>3 a 4 xícaras de água filtrada</li>
+          <li>Mel/açúcar (opcional)</li>
+          <li>1 pitada de sal (opcional)</li>
+        </ul>
+        <h3>Modo de preparo</h3>
+        <ol>
+          <li>Deixe de molho 8–12h</li>
+          <li>Escorra e lave</li>
+          <li>Bata com água no liquidificador</li>
+          <li>Coe em pano/voal</li>
+          <li>Ajuste mel, baunilha, gelo</li>
+        </ol>
+        <div class="controls">
+          <button class="btn" id="toggleBinary">Parar Chuva Binária</button>
+          <button class="btn ghost" id="toggleCreep">Versão Creepypasta</button>
+          <button class="btn" id="goBackrooms">Como ir pras Backrooms</button>
+        </div>
+        <div class="footer">Arquivo gerado localmente.</div>
+      </main>
+      <aside class="section">
+        <h3>Notas do Explorador</h3>
+        <p class="note">"Bebi metade e tive sonhos de corredores infinitos."</p>
+      </aside>
+    </div>
+  </div>
 
-    <div class="footer">Arquivo gerado localmente — não ingira líquidos perigosos encontrados em níveis.</div>
-  </main>
+  <!-- Binary rain -->
+  <div class="matrix" id="matrix"></div>
 
-  <aside class="section">
-    <h3>Notas do Explorador</h3>
-    <p class="note">"Bebi metade e tive sonhos de corredores infinitos. Segure firme sua garrafa." — Relato 7G</p>
+  <!-- Página Backrooms -->
+  <div id="backroomsPage">
+    <div class="fog"></div>
+    <h2 data-text="Como ir pras Backrooms">Como ir pras Backrooms</h2>
+    <h3>fazendo o ritual das backrooms tomando um gole da agua de Amêndoa ou cerveja mas para menores recomendado agua de Amêndoa, depois de beber desenhar um quadrado no chão e ficar jogando as coisas no quadrado e depois aí você ira receber
+    uma nota do level the matrixblack level 1839, feche o olho de 5 passos abra os olhos suba a escada conte até 10 diga backrooms 3 vezes e abra os olhos você estara na sua casa com uma falha e só atravesse a parede de tijolos que ira aparecer ao teu lado.
+    se não quiser fazer isso tudo você tem que ter uma chance de 0.8402% de chance de encontrar uma falha noclip </h3>
+    <button class="btn back" onclick="closeBackrooms()">Voltar</button>
+  </div>
 
-    <h3>Dicas</h3>
-    <ul>
-      <li>Use amêndoas cruas, não as de pacotes salgados.</li>
-      <li>A polpa coada pode virar farinha para bolos.</li>
-      <li>Se quiser textura mais densa, reduza água para 3 xícaras.</li>
-    </ul>
-
-    
-  </aside>
-</div>
-
-  </div>  <!-- Binary rain container -->  <div class="matrix" id="matrix"></div>  <script>
-    // ===== Binary rain generator =====
-    const matrix = document.getElementById('matrix');
-    const cols = Math.floor(window.innerWidth / 18);
-    const columnElements = [];
-
-    function makeColumn(x){
-      const div = document.createElement('div');
-      div.className = 'column';
-      div.style.left = x * 18 + 'px';
-      div.style.fontSize = Math.max(10, Math.random()*14) + 'px';
-      const len = Math.floor(40 + Math.random()*80);
-      for(let i=0;i<len;i++){
-        const span = document.createElement('span');
-        span.textContent = Math.random() > 0.5 ? '0' : '1';
-        div.appendChild(span);
-      }
-      matrix.appendChild(div);
-      columnElements.push({el:div, speed:1+Math.random()*2});
+<script>
+  // ===== Binary rain generator =====
+  const matrix = document.getElementById('matrix');
+  const cols = Math.floor(window.innerWidth / 18);
+  const columnElements = [];
+  function makeColumn(x){
+    const div = document.createElement('div');
+    div.className = 'column';
+    div.style.left = x * 18 + 'px';
+    div.style.fontSize = Math.max(10, Math.random()*14) + 'px';
+    const len = Math.floor(40 + Math.random()*80);
+    for(let i=0;i<len;i++){
+      const span = document.createElement('span');
+      span.textContent = Math.random() > 0.5 ? '0' : '1';
+      div.appendChild(span);
     }
-
-    for(let i=0;i<cols;i+=1){
-      if(Math.random() < 0.55) makeColumn(i);
-    }
-
-    let running = true;
-    function animate(){
-      if(!running) return;
-      for(const c of columnElements){
-        const top = (parseFloat(c.el.style.top||'-100vh') || -window.innerHeight) + c.speed;
-        c.el.style.top = (top > window.innerHeight + 200 ? -Math.random()*1200 : top) + 'px';
-        // randomly flip bits for subtle motion
-        if(Math.random() < 0.08){
-          const idx = Math.floor(Math.random()*c.el.children.length);
-          c.el.children[idx].textContent = Math.random()>0.5?'0':'1';
-        }
+    matrix.appendChild(div);
+    columnElements.push({el:div, speed:1+Math.random()*2});
+  }
+  for(let i=0;i<cols;i++) if(Math.random() < 0.55) makeColumn(i);
+  let running = true;
+  function animate(){
+    if(!running) return;
+    for(const c of columnElements){
+      const top = (parseFloat(c.el.style.top||'-100vh') || -window.innerHeight) + c.speed;
+      c.el.style.top = (top > window.innerHeight + 200 ? -Math.random()*1200 : top) + 'px';
+      if(Math.random() < 0.08){
+        const idx = Math.floor(Math.random()*c.el.children.length);
+        c.el.children[idx].textContent = Math.random()>0.5?'0':'1';
       }
-      requestAnimationFrame(animate);
     }
-    animate();
+    requestAnimationFrame(animate);
+  }
+  animate();
+  document.getElementById('toggleBinary').addEventListener('click', ()=>{
+    running = !running;
+    if(running) animate();
+    document.getElementById('toggleBinary').textContent = running ? 'Parar Chuva Binária' : 'Iniciar Chuva Binária';
+  });
 
-    // control buttons
-    document.getElementById('toggleBinary').addEventListener('click', ()=>{
-      running = !running;
-      if(running) animate();
-      document.getElementById('toggleBinary').textContent = running ? 'Parar Chuva Binária' : 'Iniciar Chuva Binária';
-    });
+  // glitch toggle
+  let glitchOn = true;
+  document.getElementById('toggleGlitch').addEventListener('click', ()=>{
+    glitchOn = !glitchOn;
+    const g = document.querySelector('.title .glitch');
+    if(!glitchOn){ g.style.animation = 'none'; document.querySelector('.card').style.border = '1px solid rgba(0,0,0,0.03)'; }
+    else { g.style.animation = ''; document.querySelector('.card').style.border = '1px dashed rgba(0,0,0,0.06)'; }
+    document.getElementById('toggleGlitch').textContent = glitchOn ? 'Ativar Glitch' : 'Desativar Glitch';
+  });
 
-    // glitch toggle: toggles title animation intensity and card border
-    let glitchOn = true;
-    document.getElementById('toggleGlitch').addEventListener('click', ()=>{
-      glitchOn = !glitchOn;
-      const g = document.querySelector('.title .glitch');
-      if(!glitchOn){ g.style.animation = 'none'; document.querySelector('.card').style.border = '1px solid rgba(0,0,0,0.03)'; }
-      else { g.style.animation = ''; document.querySelector('.card').style.border = '1px dashed rgba(0,0,0,0.06)'; }
-      document.getElementById('toggleGlitch').textContent = glitchOn ? 'Ativar Glitch' : 'Desativar Glitch';
-    });
+  // creepypasta toggle
+  let creep = false;
+  document.getElementById('toggleCreep').addEventListener('click', ()=>{
+    creep = !creep;
+    const aside = document.querySelector('aside');
+    if(creep){
+      const p = document.createElement('p'); p.className='note'; p.id='creepy'; p.textContent='Relato adicional: marcas de dedos pálidos no gargalo da garrafa.'; aside.appendChild(p);
+      document.getElementById('toggleCreep').textContent='Remover Creepypasta';
+    } else {
+      const p = document.getElementById('creepy'); if(p) p.remove();
+      document.getElementById('toggleCreep').textContent='Versão Creepypasta';
+    }
+  });
 
-    // creepypasta toggle: append spooky note
-    let creep = false;
-    document.getElementById('toggleCreep').addEventListener('click', ()=>{
-      creep = !creep;
-      const aside = document.querySelector('aside');
-      if(creep){
-        const p = document.createElement('p'); p.className='note'; p.id='creepy'; p.textContent='Relato adicional: marcas de dedos pálidos no gargalo da garrafa. Área afetada por leve zumbido nas horas noturnas.'; aside.appendChild(p);
-        document.getElementById('toggleCreep').textContent='Remover Creepypasta';
-      } else {
-        const p = document.getElementById('creepy'); if(p) p.remove();
-        document.getElementById('toggleCreep').textContent='Versão Creepypasta';
-      }
-    });
+  // download
+  document.getElementById('downloadBtn').addEventListener('click', ()=>{
+    const html = '<!doctype html>' + document.documentElement.outerHTML;
+    const blob = new Blob([html],{type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'agua-de-amendoa-backrooms.html'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 10000);
+  });
 
-    // download HTML button
-    document.getElementById('downloadBtn').addEventListener('click', ()=>{
-      const html = '<!doctype html>' + document.documentElement.outerHTML;
-      const blob = new Blob([html],{type:'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'agua-de-amendoa-backrooms.html'; document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url), 10000);
-    });
+  // Página Backrooms toggle
+  const backroomsPage = document.getElementById('backroomsPage');
+  document.getElementById('goBackrooms').addEventListener('click', ()=>{
+    backroomsPage.style.display='flex';
+  });
+  function closeBackrooms(){ backroomsPage.style.display='none'; }
 
-    // responsive: rebuild matrix on resize
-    let resizeTimer;
-    window.addEventListener('resize', ()=>{
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(()=>{
-        matrix.innerHTML=''; columnElements.length=0;
-        const newCols = Math.floor(window.innerWidth/18);
-        for(let i=0;i<newCols;i++) if(Math.random()<0.55) makeColumn(i);
-      },250);
-    });
-
-  </script></body>
-  </html>
+  // resize
+  let resizeTimer;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(()=>{
+      matrix.innerHTML=''; columnElements.length=0;
+      const newCols = Math.floor(window.innerWidth/18);
+      for(let i=0;i<newCols;i++) if(Math.random()<0.55) makeColumn(i);
+    },250);
+  });
+</script>
+</body>
+</html>
